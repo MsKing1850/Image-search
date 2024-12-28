@@ -1,76 +1,170 @@
-body{
-    background-color: teal;
+body {
+    background: linear-gradient(135deg, teal, darkslategray);
+    font-family: Arial, sans-serif;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
-h1{
+
+h1 {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     margin-top: 30px;
     color: white;
     font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-form{
+
+form {
     width: 90%;
     max-width: 600px;
-    margin: auto;
-    height: 80px;
-    background-color: blueviolet;
+    margin: 20px auto;
+    height: auto;
+    background: linear-gradient(135deg, blueviolet, purple);
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px;
 }
-form input{
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+form input {
     flex: 1;
-    height: 100%;
-    border: 0;
-    outline: 0;
-    background-color: transparent;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
-    padding: 0 30px;
-    font-size: 20px;
-
-}
-form button{
-    padding: 0 40px;
-    background-color: #ff3929 ;
-    color: white;
-    border: 0;
-    outline: 0;
-    height: 100%;
-    font-size: 20px;
-    border-bottom-right-radius: 8px;
-    border-top-right-radius: 8px;
-    cursor: pointer;
+    padding: 0 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
 }
 
- #show-more{
-    border: 0;
-    outline: 0;
+form input:focus {
+    border-color: #ff3929;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+form button {
+    padding: 10px 20px;
     background-color: #ff3929;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin: 10px auto 100px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
     cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+form button:hover {
+    transform: scale(1.05);
+    background-color: #ff6347;
+}
+
+#show-more {
+    border: none;
+    outline: none;
+    background-color: #ff3929;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    margin: 20px auto;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
     display: none;
- }
- #search-result{
-    width: 80%;
-    margin: 100px auto 50px;
+}
+
+#show-more:hover {
+    background-color: #ff6347;
+}
+
+#search-result {
+    width: 90%;
+    margin: 50px auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 40px;
- }
- #search-result img{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+#search-result img {
     width: 100%;
-    height: 230px;
+    height: 200px;
     object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
- }
+#search-result img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
 
- #credit{
+#credit {
     text-align: center;
-    color: blue;
+    color: lightblue;
     font-family: cursive;
-    font-size: 15px;
+    font-size: 14px;
+    display: block;
+    margin-top: 20px;
+    opacity: 0.8;
     display: none;
- }
+}
+
+
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+        padding: 10px 20px;
+        border-radius: 20px; /* Softer corners for smaller screens */
+    }
+
+    form input {
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 12px; /* More rounded edges for input */
+    }
+
+    form button {
+        width: 100%;
+        margin: 10px 0 0 0;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 12px; /* Match input for a cohesive look */
+    }
+
+    #search-result {
+        grid-template-columns: 1fr;
+        width: 100%; /* Utilize full width on mobile */
+        margin-top: 20px; /* Adjust spacing for clarity */
+    }
+
+    #search-result img {
+        height: auto; /* Auto height for responsive images */
+    }
+
+    #show-more {
+        width: 100%;
+        margin: 20px auto;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+}
+
